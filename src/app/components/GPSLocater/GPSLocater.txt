@@ -1,0 +1,84 @@
+import React, { useEffect, useState } from 'react';
+
+interface Position {
+  latitude: number;
+  longitude: number;
+}
+
+interface OpenCageDataResult {
+  components: {
+    city?: string;
+  };
+}
+
+const getCurrentPosition = (): {
+  position: Position | null;
+  error: string | null;
+} => {
+  const [position, setPosition] = useState<Position | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const successHandler = (position: GeolocationPosition) => {
+      setPosition({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+    };
+
+    const errorHandler = (error: GeolocationPositionError) => {
+      setError(error.message);
+    };
+
+    navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
+  }, []);
+
+  return { position, error };
+};
+
+const fetchCity = async (latitude: number, longitude: number): Promise<string> => {
+  const API_KEY = '7fb34d16c9bd44729179759e1388913e';
+  const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${API_KEY}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data && data.results.length > 0) {
+      const city = (data.results[0] as OpenCageDataResult).components.city;
+      if (city) {
+        return city;
+      }
+    }
+
+    throw new Error('City not found');
+  } catch (error) {
+    throw new Error('Error fetching city');
+  }
+};
+
+const GPSLocator: React.FC = () => {
+  const { position, error } = getCurrentPosition();
+  const [city, setCity] = useState<string>('');
+
+  useEffect(() => {
+    if (position) {
+      fetchCity(position.latitude, position.longitude)
+        .then((result) => setCity(result))
+        .catch((error) => console.error(error));
+    }
+  }, [position]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!position || !city) {
+    return <div>Loading...</div>;
+  }
+
+  return <div>Current City: {city}</div>;
+};
+
+export default GPSLocator;
+
