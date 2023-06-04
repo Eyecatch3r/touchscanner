@@ -6,7 +6,7 @@ export default function Header(){
             <Link href="/" className="m-5">
                 <img src="/logo.png"
                     alt="Logo"
-                    className= "md:w-20 md:h-20 w-10 h-10 dark:brightness-0 dark:invert transition glow duration-500 hover:drop-shadow-[0_7px_11px_rgba(100,100,100,1)]"
+                    className= "md:w-20 md:h-20 w-14 h-14 dark:brightness-0 dark:invert transition glow duration-500 hover:drop-shadow-[0_7px_11px_rgba(100,100,100,1)]"
                 />
             </Link> 
 
@@ -15,7 +15,7 @@ export default function Header(){
             <Link href="/account" className="m-5">
                 <img src="/ProfilePic.jpeg"
                     alt="Profile Picture"
-                    className="md:w-20 md:h-20 w-10 h-10 rounded-full transition filter duration-500 hover:drop-shadow-[0_7px_11px_rgba(100,100,100,1)]"
+                    className="md:w-20 md:h-20 w-14 h-14 rounded-full transition filter duration-500 hover:drop-shadow-[0_7px_11px_rgba(100,100,100,1)]"
                 />
             </Link>
         </div>
