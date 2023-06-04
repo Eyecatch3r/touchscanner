@@ -183,7 +183,7 @@ export default function Home() {
       </div>
       <div className="my-10 flex items-center justify-between mb-1">
         <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white ml-5 lg:ml-20">
-          {searchTerm || "Local treasures:"}
+          {searchTerm || "Local  treasures:"}
         </h2>
         <div className="flex items-center ml-5 lg:ml-20 mt-4">
           <label htmlFor="sort" className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white ml-5 lg:ml-20">
@@ -202,7 +202,7 @@ export default function Home() {
         </div>
 
       </div>
-      <hr className="border-t-2 border-gray-300 mt-2"/>
+      <hr className="border-t-1 border-gray-300 mt-2 mb-6"/>
       <animated.div style={props} className="flex flex-wrap gap-6 justify-center items-center mb-40">
           {sortedProducts.map((product, index) => (
               <ProductCard key={index} {...product} />
