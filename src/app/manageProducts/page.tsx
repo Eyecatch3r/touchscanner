@@ -8,6 +8,7 @@ export default function Page() {
     const handleAddProduct = () => {
         setIsFormVisible(true);
     };
+
     return (
       <main className="h-screen">
         <div className="min-h-screen mx-4">

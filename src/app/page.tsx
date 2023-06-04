@@ -2,6 +2,8 @@
 import { useState } from "react";
 import ProductCard from "./components/ProductCard/ProductCard";
 import Searchbar from "./components/searchbar/Searchbar";
+import {useSpring} from '@react-spring/web';
+import {animated} from "@react-spring/web";
 import Link from "next/link";
 interface productData {
   name: string,
@@ -12,6 +14,15 @@ interface productData {
 }
 
 export default function Home() {
+  const [props, api] = useSpring(
+      () => ({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        config: { duration: 1000 }
+      }),
+      []
+  )
+
   const products = [
     {
       id: 0,
@@ -164,11 +175,11 @@ export default function Home() {
         </h2>
         <hr />
       </div>
-      <div className="flex flex-wrap gap-6 justify-center items-center mb-40">
-        {filteredProducts.map((product, index) => (
-          <ProductCard key={index} {...product} />
-        ))}
-      </div>
+      <animated.div style={props} className="flex flex-wrap gap-6 justify-center items-center mb-40">
+          {filteredProducts.map((product, index) => (
+              <ProductCard key={index} {...product} />
+          ))}
+      </animated.div>
 
     </main>
   )

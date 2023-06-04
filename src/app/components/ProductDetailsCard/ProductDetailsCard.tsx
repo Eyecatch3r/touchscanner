@@ -1,5 +1,7 @@
+'use client'
 import React from 'react';
-
+import { useSpring} from '@react-spring/web';
+import {animated} from "@react-spring/web";
 interface productDetailsCardProps {
     name: string;
     image: string;
@@ -11,8 +13,17 @@ interface productDetailsCardProps {
 }
 
 const ProductDetailsCard = ({ name, image, price, shopName, distance, description, keywords}: productDetailsCardProps) => {
-  return (
-    <div className="bg-whiteCard dark:bg-darkCard rounded-lg shadow-lg p-6 md:flex">
+    const [props, api] = useSpring(
+        () => ({
+            from: { opacity: 0 },
+            to: { opacity: 1 },
+            config: { duration: 500 }
+        }),
+        []
+    )
+
+    return (
+    <animated.div style={props} className="bg-blur bg-opacity-70 backdrop-filter backdrop-blur-lg backdrop-saturate-150 rounded-lg shadow-lg p-6 md:flex">
       <div className="md:w-1/2">
         <img src={image} alt={name} className="w-full h-auto rounded-lg md:rounded-none object-contain" />
       </div>
@@ -41,7 +52,7 @@ const ProductDetailsCard = ({ name, image, price, shopName, distance, descriptio
           Reserve
         </button>
       </div>
-    </div>
+    </animated.div>
   );
 };
 
