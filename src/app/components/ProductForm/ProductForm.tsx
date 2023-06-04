@@ -26,7 +26,7 @@ export default function ProductForm() {
     return (
         <div className="flex items-center justify-center">
             <div className="bg-blur bg-opacity-70 backdrop-filter backdrop-blur-lg backdrop-saturate-150 rounded-lg max-w-md w-full p-6 rounded-lg text-gray-800 dark:text-white">
-                <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+                <form onSubmit={handleSubmit} className="max-w-md mx-auto text-darkCard">
                     <div className="mb-4">
                         <label htmlFor="image" className="block mb-2 font-semibold text-gray-700">
                             Image
