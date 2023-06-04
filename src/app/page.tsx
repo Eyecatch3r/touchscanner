@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import React, { useState } from "react";
 import ProductCard from "./components/ProductCard/ProductCard";
 import Searchbar from "./components/searchbar/Searchbar";
 import {useSpring} from '@react-spring/web';
@@ -148,7 +148,7 @@ export default function Home() {
       return a.price - b.price; // Sort by price in ascending order
     });
 
-  function handleSortChange(event) {
+  function handleSortChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setSortBy(event.target.value);
   }
 
