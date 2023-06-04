@@ -1,15 +1,7 @@
 import Link from 'next/link';
 import { useSpring} from '@react-spring/web';
 import {animated} from "@react-spring/web";
-
-interface ProductCardProps {
-    id: number;
-    name: string;
-    image: string;
-    price: number;
-    shopName: string;
-    distance: number;
-}
+import { productData } from '../../products';
 
 const ProductCard = ({
                          id,
@@ -18,7 +10,7 @@ const ProductCard = ({
                          price,
                          shopName,
                          distance,
-                     }: ProductCardProps) => {
+                     }: productData) => {
     const [props, api] = useSpring(
         () => ({
             from: { opacity: 0 },

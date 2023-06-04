@@ -2,18 +2,11 @@
 import React, { useState } from "react";
 import ProductCard from "./components/ProductCard/ProductCard";
 import Searchbar from "./components/searchbar/Searchbar";
-import {useSpring} from '@react-spring/web';
-import {animated} from "@react-spring/web";
-import Link from "next/link";
-interface productData {
-  name: string,
-  price: number,
-  distance: number,
-  description: string,
-  keywords: string[];
-}
+import { useSpring } from '@react-spring/web';
+import { animated } from "@react-spring/web";
+import { products, productData } from './products';
 
-export default function Home() {
+export default function Home() {  
   const [props, api] = useSpring(
       () => ({
         from: { opacity: 0 },
@@ -22,109 +15,6 @@ export default function Home() {
       }),
       []
   )
-
-  const products = [
-    {
-      id: 0,
-      name: 'AP Royale Oak Gold',
-      image: '/RoyaleOak.png',
-      price: 1239,
-      shopName: 'Watches & jewerlery',
-      distance: 0.4,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 1,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 2343,
-      shopName: 'Watches & jewerlery',
-      distance: 0.4,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 2,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 999,
-      shopName: 'Watches & jewerlery',
-      distance: 0.9,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 3,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 109,
-      shopName: 'Watches & jewerlery',
-      distance: 5,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 4,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 1239,
-      shopName: 'Watches & jewerlery',
-      distance: 0.23,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 5,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 2343,
-      shopName: 'Watches & jewerlery',
-      distance: 0.4,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 6,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 999,
-      shopName: 'Watches & jewerlery',
-      distance: 0.9,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 7,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 109,
-      shopName: 'Watches & jewerlery',
-      distance: 5,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 8,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 109,
-      shopName: 'Watches & jewerlery',
-      distance: 5,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-    {
-      id: 9,
-      name: 'AP Royale Oak',
-      image: '/RoyaleOak.png',
-      price: 109,
-      shopName: 'Watches & jewerlery',
-      distance: 5,
-      description: 'This is the description for Product 1',
-      keywords: ['keyword1', 'keyword2', 'keyword3'],
-    },
-  ];
 
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState("");
@@ -153,11 +43,17 @@ export default function Home() {
   }
 
   const sortedProducts = [...filteredProducts];
-
   if (sortBy === "price") {
     sortedProducts.sort((a, b) => a.price - b.price);
   } else if (sortBy === "distance") {
     sortedProducts.sort((a, b) => a.distance - b.distance);
+  }
+
+  const featuredProducts: productData[] = products.filter((product) => product.isFeatured);
+  if (sortBy === "price") {
+    featuredProducts.sort((a, b) => a.price - b.price);
+  } else if (sortBy === "distance") {
+    featuredProducts.sort((a, b) => a.distance - b.distance);
   }
 
   function getMatchCount(product: productData) {
@@ -177,7 +73,6 @@ export default function Home() {
 
   return (
     <main className="h-screen">
-
       <div className="h-1/2 flex items-center justify-center">
         <Searchbar searchProduct={searchProduct}/>
       </div>
@@ -200,15 +95,13 @@ export default function Home() {
             <option value="distance">Distance</option>
           </select>
         </div>
-
       </div>
       <hr className="border-t-1 border-gray-300 mt-2 mb-6"/>
       <animated.div style={props} className="flex flex-wrap gap-6 justify-center items-center mb-40">
-          {sortedProducts.map((product, index) => (
+          {(searchTerm == '' ? featuredProducts : sortedProducts).map((product, index) => (
               <ProductCard key={index} {...product} />
           ))}
       </animated.div>
-
     </main>
   )
 }
