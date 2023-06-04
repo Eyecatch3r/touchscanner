@@ -2,17 +2,9 @@
 import React from 'react';
 import { useSpring} from '@react-spring/web';
 import {animated} from "@react-spring/web";
-interface productDetailsCardProps {
-    name: string;
-    image: string;
-    price: number;
-    shopName: string;
-    distance: number;
-    description: string;
-    keywords: string[];
-}
+import { productData } from '../../products';
 
-const ProductDetailsCard = ({ name, image, price, shopName, distance, description, keywords}: productDetailsCardProps) => {
+const ProductDetailsCard = ({ name, image, price, shopName, distance, description, keywords}: productData) => {
     const [props, api] = useSpring(
         () => ({
             from: { opacity: 0 },
@@ -25,7 +17,7 @@ const ProductDetailsCard = ({ name, image, price, shopName, distance, descriptio
     return (
     <animated.div style={props} className="bg-blur bg-opacity-70 backdrop-filter backdrop-blur-lg backdrop-saturate-150 rounded-lg shadow-lg p-6 md:flex">
       <div className="md:w-1/2">
-        <img src={image} alt={name} className="w-full h-auto rounded-lg md:rounded-none object-contain" />
+        <img src={image || "/ImagePlaceholder.png"} alt={name} className="w-full h-auto rounded-lg md:rounded-none object-contain" />
       </div>
       <div className="md:w-1/2 mt-4 md:mt-0 md:ml-6">
         <h2 className="text-2xl font-bold mb-1">{name}</h2>
@@ -41,7 +33,7 @@ const ProductDetailsCard = ({ name, image, price, shopName, distance, descriptio
         <div className="mt-4">
           <h3 className="text-gray-600 dark:text-gray-300 font-bold">Keywords:</h3>
           <ul className="mt-2">
-            {keywords.map((keyword, index) => (
+            {keywords && keywords.map((keyword, index) => (
               <li key={index} className="text-gray-600 dark:text-gray-300">
                 {keyword}
               </li>

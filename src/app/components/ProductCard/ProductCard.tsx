@@ -29,7 +29,7 @@ const ProductCard = ({
                 <animated.img
                     style={props}
                     className="p-8 rounded-t-lg transition duration-500 hover:scale-125 hover:rotate-12"
-                    src={image}
+                    src={image || "/ImagePlaceholder.png"}
                     alt={name}
                 />
                 <div className="px-5 pb-5">
