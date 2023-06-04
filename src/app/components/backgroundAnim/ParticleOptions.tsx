@@ -610,7 +610,7 @@ const optionsLight = {
             }
         },
         "color": {
-            "value": "#efeeee",
+            "value": "#000000",
             "animation": {
                 "h": {
                     "count": 0,
@@ -680,7 +680,7 @@ const optionsLight = {
         "links": {
             "blink": false,
             "color": {
-                "value": "#ffffff"
+                "value": "#000000"
             },
             "consent": false,
             "distance": 150,
