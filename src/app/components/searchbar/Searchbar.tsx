@@ -13,7 +13,7 @@ export default function Searchbar({ searchProduct }: SearchbarProps) {
     }
 
     return (
-        <div className="w-8/12">
+        <div className="md:w-8/12 w-10/12">
             <form
                 className="flex items-center h-10 w-full border-2 border-black rounded-full p-2 dark:border-white"
                 onSubmit={(e) => e.preventDefault()}
