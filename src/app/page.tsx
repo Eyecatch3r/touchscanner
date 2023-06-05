@@ -77,18 +77,18 @@ export default function Home() {
         <Searchbar searchProduct={searchProduct}/>
       </div>
       <div className="my-10 flex items-center justify-between mb-1">
-        <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white ml-5 lg:ml-20">
+        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white ml-5 lg:ml-20">
           {searchTerm || "Local  treasures:"}
         </h2>
-        <div className="flex items-center ml-5 lg:ml-20 mt-4">
-          <label htmlFor="sort" className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white ml-5 lg:ml-20">
+        <div className="flex flex-wrap mr-5 lg:mr-20">
+          <label htmlFor="sort" className="text-lg md:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
             Sort by:
           </label>
           <select
               id="sort"
               value={sortBy}
               onChange={handleSortChange}
-              className="ml-2 text-darkCard px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="ml-2 bg-whiteCard dark:bg-darkCard text-gray-900 dark:text-white px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">None</option>
             <option value="price">Price</option>
