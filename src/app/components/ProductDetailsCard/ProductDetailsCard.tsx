@@ -37,12 +37,12 @@ const ProductDetailsCard = ({ name, image, price, shopName, distance, descriptio
           <span className="font-bold">Shop:</span> {shopName}
         </p>
         <p className="text-gray-600 dark:text-gray-300 mt-2">
-          <Link href="https://www.exampelShop.com" target='blank'>
+          <Link href="https://www.exampleShop.com" target='blank'>
             <span className="font-bold">
               Website:{" "}
             </span> 
             <span className="underline">
-              exampelShop.com
+              exampleShop.com
             </span>
           </Link>
         </p>
