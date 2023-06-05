@@ -18,7 +18,7 @@ const ProductDetailsCard = ({ name, image, price, shopName, distance, descriptio
     )
 
     return (
-    <animated.div style={props} className="bg-blur bg-opacity-70 backdrop-filter backdrop-blur-lg backdrop-saturate-150 rounded-lg shadow-lg p-6 md:flex">
+    <animated.div style={props} className="bg-blur bg-opacity-70 backdrop-filter backdrop-blur-lg backdrop-saturate-150 rounded-lg shadow-lg p-6 md:flex mb-20">
       <div className="md:w-1/2">
         <img src={image || "/ImagePlaceholder.png"} alt={name} className="w-full h-auto rounded-lg md:rounded-none object-contain" />
       </div>
