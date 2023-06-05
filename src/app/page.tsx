@@ -102,6 +102,9 @@ export default function Home() {
               <ProductCard key={index} {...product} />
           ))}
       </animated.div>
+      <div className="mb-10">
+
+      </div>
     </main>
-  )
+  );
 }
