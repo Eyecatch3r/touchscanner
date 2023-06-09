@@ -45,6 +45,12 @@ export default function Page() {
                   Manage Products
                 </button>
               </Link>
+
+              <Link href="/manageReservations">
+                <button className="bg-darkCard text-whiteCard dark:bg-whiteCard dark:text-darkCard font-bold py-1 px-8 mt-4 rounded focus:outline-none">
+                  Manage Reservations
+                </button>
+              </Link>
             </div>
           </div>
         </animated.div>
