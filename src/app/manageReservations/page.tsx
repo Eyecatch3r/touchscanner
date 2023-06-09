@@ -18,7 +18,7 @@ export default function Page() {
                     Manage Reservations
                 </h1>
                 <hr className="w-full border-t mb-4 border-darkTextSecondary" />
-                {isCardVisible && (<div><ProductCard className="flex flex-wrap gap-6 justify-center items-center mt-4 mb-40" key={1} {...products[0]}></ProductCard>
+                {isCardVisible && (<div><ProductCard key={1} {...products[0]}></ProductCard>
                     <button
                         className="mb-8 bg-darkCard text-whiteCard dark:bg-whiteCard dark:text-darkCard font-bold py-1 px-8 mt-4 rounded focus:outline-none"
                         onClick={handleAddReservation}
