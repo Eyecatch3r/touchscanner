@@ -80,7 +80,7 @@ export const products: productData[] = [
     {
       id: 6,
       name: 'Blue Designer Sofa',
-      image: '  /Sofa.png',
+      image: '/Sofa.png',
       price: 4100,
       shopName: 'Bed Market',
       distance: 2.05,
