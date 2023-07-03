@@ -216,7 +216,7 @@ export const products: productData[] = [
     price: 23.90,
     shopName: 'Cyberport',
     distance: 3,
-    description: 'KOMPROMISSLOS LEISE UND PERFORMANT\nSilent Wings 4 Lüfter sind der Inbegriff von high-performance Lüftern mit erstklassigen Features. Technisch bis ins Detail optimiert eignen sich Silent Wings 4 Lüfter für Radiatoren, auf Kühlkörpern und als Gehäuselüfter in high-end PC-Builds gleichermaßen.',
+    description: 'KOMPROMISSLOS LEISE UND PERFORMANT<br>Silent Wings 4 Lüfter sind der Inbegriff von high-performance Lüftern mit erstklassigen Features. Technisch bis ins Detail optimiert eignen sich Silent Wings 4 Lüfter für Radiatoren, auf Kühlkörpern und als Gehäuselüfter in high-end PC-Builds gleichermaßen.',
     keywords: ['Lüfter', 'PC', 'Fan', 'Elektronik', 'Electronic'],
     isFeatured: false,
   },
