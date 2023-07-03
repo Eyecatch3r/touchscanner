@@ -108,7 +108,7 @@ export const products: productData[] = [
     distance: 0.75,
     description: 'Experience the timeless magic of The Lord of the Rings as you embark on a legendary adventure in Middle-earth.',
     keywords: ['Book', 'Lord of the Rings', 'Tolkien'],
-    isFeatured: true,
+    isFeatured: false,
   },
   {
     id: 9,

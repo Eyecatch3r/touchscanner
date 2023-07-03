@@ -17,7 +17,7 @@ export default function Home() {
   )
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState("distance");
   function searchProduct(words: string) {
     setSearchTerm(words);
   }
