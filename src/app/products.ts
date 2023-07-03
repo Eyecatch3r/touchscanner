@@ -211,7 +211,7 @@ export const products: productData[] = [
   },
   {
     id: 18,
-    name: 'bequiet! SILENT WINGS 4',
+    name: 'bequiet SILENT WINGS 4',
     image: '/Lüfter.png',
     price: 23.90,
     shopName: 'Cyberport',
@@ -233,7 +233,7 @@ export const products: productData[] = [
   },
   {
     id: 20,
-    name: 'bequiet! SILENT WINGS 4',
+    name: 'bequiet SILENT WINGS 4',
     image: '/Lüfter.png',
     price: 21.30,
     shopName: 'Bennis PC parts',
